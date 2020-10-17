@@ -9,22 +9,22 @@ using DotNetCoreSqlDb.Models;
 
 namespace DotNetCoreSqlDb.Controllers
 {
-    public class TodosController : Controller
+    public class UserController : Controller
     {
         private readonly MyDatabaseContext _context;
 
-        public TodosController(MyDatabaseContext context)
+        public UserController(MyDatabaseContext context)
         {
             _context = context;
         }
 
-        // GET: Todos
+        // GET: User
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Todo.ToListAsync());
+            return View(await _context.User.ToListAsync());
         }
 
-        // GET: Todos/Details/5
+        // GET: User/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -32,39 +32,39 @@ namespace DotNetCoreSqlDb.Controllers
                 return NotFound();
             }
 
-            var todo = await _context.Todo
+            var User = await _context.User
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (todo == null)
+            if (User == null)
             {
                 return NotFound();
             }
 
-            return View(todo);
+            return View(User);
         }
 
-        // GET: Todos/Create
+        // GET: User/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Todos/Create
+        // POST: User/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Description,CreatedDate,Done")] Todo todo)
+        public async Task<IActionResult> Create([Bind("ID,Description,CreatedDate,Done")] User User)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(todo);
+                _context.Add(User);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(todo);
+            return View(User);
         }
 
-        // GET: Todos/Edit/5
+        // GET: User/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -72,22 +72,22 @@ namespace DotNetCoreSqlDb.Controllers
                 return NotFound();
             }
 
-            var todo = await _context.Todo.FindAsync(id);
-            if (todo == null)
+            var User = await _context.User.FindAsync(id);
+            if (User == null)
             {
                 return NotFound();
             }
-            return View(todo);
+            return View(User);
         }
 
-        // POST: Todos/Edit/5
+        // POST: User/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Description,CreatedDate")] Todo todo)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Description,CreatedDate")] User User)
         {
-            if (id != todo.ID)
+            if (id != User.ID)
             {
                 return NotFound();
             }
@@ -96,12 +96,12 @@ namespace DotNetCoreSqlDb.Controllers
             {
                 try
                 {
-                    _context.Update(todo);
+                    _context.Update(User);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!TodoExists(todo.ID))
+                    if (!UserExists(User.ID))
                     {
                         return NotFound();
                     }
@@ -112,10 +112,10 @@ namespace DotNetCoreSqlDb.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(todo);
+            return View(User);
         }
 
-        // GET: Todos/Delete/5
+        // GET: User/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -123,30 +123,30 @@ namespace DotNetCoreSqlDb.Controllers
                 return NotFound();
             }
 
-            var todo = await _context.Todo
+            var User = await _context.User
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (todo == null)
+            if (User == null)
             {
                 return NotFound();
             }
 
-            return View(todo);
+            return View(User);
         }
 
-        // POST: Todos/Delete/5
+        // POST: User/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var todo = await _context.Todo.FindAsync(id);
-            _context.Todo.Remove(todo);
+            var User = await _context.User.FindAsync(id);
+            _context.User.Remove(User);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool TodoExists(int id)
+        private bool UserExists(int id)
         {
-            return _context.Todo.Any(e => e.ID == id);
+            return _context.User.Any(e => e.ID == id);
         }
     }
 }
