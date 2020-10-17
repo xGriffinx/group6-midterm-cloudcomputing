@@ -13,6 +13,6 @@ namespace DotNetCoreSqlDb.Models
         {
         }
 
-        public DbSet<DotNetCoreSqlDb.Models.User> User { get; set; }
+        public DbSet<DotNetCoreSqlDb.Models.userType> userType { get; set; }
     }
 }

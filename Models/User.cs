@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DotNetCoreSqlDb.Models
 {
-    public class User
+    public class userType
     {
         public int ID { get; set; }
         public string Description { get; set; }

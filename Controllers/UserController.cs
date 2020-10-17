@@ -21,7 +21,7 @@ namespace DotNetCoreSqlDb.Controllers
         // GET: User
         public async Task<IActionResult> Index()
         {
-            return View(await _context.User.ToListAsync());
+            return View(await _context.userType.ToListAsync());
         }
 
         // GET: User/Details/5
@@ -32,14 +32,14 @@ namespace DotNetCoreSqlDb.Controllers
                 return NotFound();
             }
 
-            var User = await _context.User
+            var user = await _context.userType
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (User == null)
+            if (user == null)
             {
                 return NotFound();
             }
 
-            return View(User);
+            return View(user);
         }
 
         // GET: User/Create
@@ -53,11 +53,11 @@ namespace DotNetCoreSqlDb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Description,CreatedDate,Done")] User User)
+        public async Task<IActionResult> Create([Bind("ID,Description,CreatedDate,Done")] userType user)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(User);
+                _context.Add(user);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -72,12 +72,12 @@ namespace DotNetCoreSqlDb.Controllers
                 return NotFound();
             }
 
-            var User = await _context.User.FindAsync(id);
-            if (User == null)
+            var user = await _context.userType.FindAsync(id);
+            if (user == null)
             {
                 return NotFound();
             }
-            return View(User);
+            return View(user);
         }
 
         // POST: User/Edit/5
@@ -85,9 +85,9 @@ namespace DotNetCoreSqlDb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Description,CreatedDate")] User User)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Description,CreatedDate")] userType user)
         {
-            if (id != User.ID)
+            if (id != user.ID)
             {
                 return NotFound();
             }
@@ -96,12 +96,12 @@ namespace DotNetCoreSqlDb.Controllers
             {
                 try
                 {
-                    _context.Update(User);
+                    _context.Update(user);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!UserExists(User.ID))
+                    if (!UserExists(user.ID))
                     {
                         return NotFound();
                     }
@@ -112,7 +112,7 @@ namespace DotNetCoreSqlDb.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(User);
+            return View(user);
         }
 
         // GET: User/Delete/5
@@ -123,14 +123,14 @@ namespace DotNetCoreSqlDb.Controllers
                 return NotFound();
             }
 
-            var User = await _context.User
+            var user = await _context.userType
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (User == null)
+            if (user == null)
             {
                 return NotFound();
             }
 
-            return View(User);
+            return View(user);
         }
 
         // POST: User/Delete/5
@@ -138,15 +138,15 @@ namespace DotNetCoreSqlDb.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var User = await _context.User.FindAsync(id);
-            _context.User.Remove(User);
+            var user = await _context.userType.FindAsync(id);
+            _context.userType.Remove(user);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool UserExists(int id)
         {
-            return _context.User.Any(e => e.ID == id);
+            return _context.userType.Any(e => e.ID == id);
         }
     }
 }
