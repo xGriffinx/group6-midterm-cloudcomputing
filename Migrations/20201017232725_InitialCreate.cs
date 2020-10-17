@@ -8,7 +8,7 @@ namespace DotNetCoreSqlDb.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "User",
+                name: "userType",
                 columns: table => new
                 {
                     ID = table.Column<int>(nullable: false)
@@ -19,14 +19,14 @@ namespace DotNetCoreSqlDb.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_User", x => x.ID);
+                    table.PrimaryKey("PK_userType", x => x.ID);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "User");
+                name: "userType");
         }
     }
 }
