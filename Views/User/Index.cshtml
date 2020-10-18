@@ -1,14 +1,11 @@
 ﻿@model IEnumerable<DotNetCoreSqlDb.UserType>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "CurrentScore";
 }
 
-<h1>Index</h1>
+<h1>Current Teams</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -16,52 +13,22 @@
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
-                <a>Wk 1</a>
+                1
             </th>
             <th>
-                <a>Wk 2</a>
+                2
             </th>
             <th>
-                <a>Wk 3</a>
+                3
             </th>
             <th>
-                <a>Wk 4</a>
+                4
             </th>
             <th>
-                <a>Wk 5</a>
+                5
             </th>
             <th>
-                <a>Wk 7</a>
-            </th>
-            <th>
-                <a>Wk 8</a>
-            </th>
-            <th>
-                <a>Wk 9</a>
-            </th>
-            <th>
-                <a>Wk 10</a>
-            </th>
-            <th>
-                <a>Wk 11</a>
-            </th>
-            <th>
-                <a>Wk 12</a>
-            </th>
-            <th>
-                <a>Wk 13</a>
-            </th>
-            <th>
-                <a>Wk 14</a>
-            </th>
-            <th>
-                <a>Wk 15</a>
-            </th>
-            <th>
-                <a>Wk 16</a>
-            </th>
-            <th>
-                <a>Wk 17</a>
+                6
             </th>
         </tr>
     </thead>
@@ -81,50 +48,17 @@
                 @Html.DisplayFor(modelItem => item.Member3)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Member1)
+                @Html.DisplayFor(modelItem => item.Member4)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Member1)
+                @Html.DisplayFor(modelItem => item.Member5)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Member1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Member1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Member1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Member1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Member1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Member1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Member1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Member1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Member1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Member1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Member1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Member1)
+                @Html.DisplayFor(modelItem => item.Member6)
             </td>
             <td>
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Delete" asp-route-id="@item.Id">Remove</a>
             </td>
         </tr>
 }

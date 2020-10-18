@@ -32,13 +32,13 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Create">Sign Up</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index">User List</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index">Current Teams</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Playersstatistics" asp-action="Index">Test</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Playersstatistics" asp-action="Index">Player Statistics</a>
                         </li>
                     </ul>
                 </div>
@@ -76,7 +76,6 @@
         </script>
     </environment>
     <script src="~/js/site.js" asp-append-version="true"></script>
-
     @RenderSection("Scripts", required: false)
 </body>
 </html>

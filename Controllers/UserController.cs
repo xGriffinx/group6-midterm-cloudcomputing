@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DotNetCoreSqlDb.Models;
+using Microsoft.Data.SqlClient;
+using System.Text.Encodings.Web;
 
 namespace DotNetCoreSqlDb.Controllers
 {
@@ -113,6 +115,37 @@ namespace DotNetCoreSqlDb.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(user);
+        }
+
+        // GET: User/Create
+        public IActionResult GetPlayerScore()
+        {
+            return NotFound();
+        }
+
+        // POST: User/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> GetPlayerScore(int? id, int? week)
+        {
+            using (var newcontext = new FootballContext())
+            {
+                if (id == null)
+                {
+                    return NotFound();
+                }
+                var user = await _context.UserType.FindAsync(id);
+                var sqlReturn = newcontext.Database.ExecuteSqlRaw((string.Format(@"SELECT SUM(CAST(p.Week{0} AS int)) AS Total 
+                    FROM Playersstatistics p 
+                    INNER JOIN UserType u ON(u.Member1 = p.Player OR u.Member2 = p.Player OR u.Member3 = p.Player OR u.Member4 = p.Player OR u.Member5 = p.Player OR u.Member6 = p.Player OR u.Member7 = p.Player OR u.Member8 = p.Player OR u.Member9 = p.Player OR u.Member10 = p.Player) AND u.ID = {1}", week, id)));
+                //.FromSqlRaw(string.Format(@"SELECT SUM(CAST(p.Week{0} AS int)) AS Total 
+                //FROM Playersstatistics p 
+                //INNER JOIN UserType u ON(u.Member1 = p.Player OR u.Member2 = p.Player OR u.Member3 = p.Player OR u.Member4 = p.Player OR u.Member5 = p.Player OR u.Member6 = p.Player OR u.Member7 = p.Player OR u.Member8 = p.Player OR u.Member9 = p.Player OR u.Member10 = p.Player) AND u.ID = {1}", week, id))
+                ViewData["value"] = sqlReturn;
+                return View();
+            }  
         }
 
         // GET: User/Delete/5
