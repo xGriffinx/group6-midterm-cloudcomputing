@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DotNetCoreSqlDb.Models.userType>
+﻿@model IEnumerable<DotNetCoreSqlDb.UserType>
 
 @{
     ViewData["Title"] = "Index";
@@ -75,7 +75,10 @@
                 @Html.DisplayFor(modelItem => item.Member1)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Member1)
+                @Html.DisplayFor(modelItem => item.Member2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Member3)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Member1)
@@ -120,11 +123,8 @@
                 @Html.DisplayFor(modelItem => item.Member1)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Member1)
-            </td>
-            <td>
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
 }

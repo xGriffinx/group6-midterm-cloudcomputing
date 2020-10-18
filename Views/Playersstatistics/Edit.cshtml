@@ -1,0 +1,164 @@
+﻿@model DotNetCoreSqlDb.Playersstatistics
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Playersstatistics</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Rank" class="control-label"></label>
+                <input asp-for="Rank" class="form-control" />
+                <span asp-validation-for="Rank" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Player" class="control-label"></label>
+                <input asp-for="Player" class="form-control" />
+                <span asp-validation-for="Player" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Team" class="control-label"></label>
+                <input asp-for="Team" class="form-control" />
+                <span asp-validation-for="Team" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Position" class="control-label"></label>
+                <input asp-for="Position" class="form-control" />
+                <span asp-validation-for="Position" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Age" class="control-label"></label>
+                <input asp-for="Age" class="form-control" />
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gamesplayed" class="control-label"></label>
+                <input asp-for="Gamesplayed" class="form-control" />
+                <span asp-validation-for="Gamesplayed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Passescompleted" class="control-label"></label>
+                <input asp-for="Passescompleted" class="form-control" />
+                <span asp-validation-for="Passescompleted" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fantasypoints" class="control-label"></label>
+                <input asp-for="Fantasypoints" class="form-control" />
+                <span asp-validation-for="Fantasypoints" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pprscoring" class="control-label"></label>
+                <input asp-for="Pprscoring" class="form-control" />
+                <span asp-validation-for="Pprscoring" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Posrank" class="control-label"></label>
+                <input asp-for="Posrank" class="form-control" />
+                <span asp-validation-for="Posrank" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Week1" class="control-label"></label>
+                <input asp-for="Week1" class="form-control" />
+                <span asp-validation-for="Week1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Week2" class="control-label"></label>
+                <input asp-for="Week2" class="form-control" />
+                <span asp-validation-for="Week2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Week3" class="control-label"></label>
+                <input asp-for="Week3" class="form-control" />
+                <span asp-validation-for="Week3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Week4" class="control-label"></label>
+                <input asp-for="Week4" class="form-control" />
+                <span asp-validation-for="Week4" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Week5" class="control-label"></label>
+                <input asp-for="Week5" class="form-control" />
+                <span asp-validation-for="Week5" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Week6" class="control-label"></label>
+                <input asp-for="Week6" class="form-control" />
+                <span asp-validation-for="Week6" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Week7" class="control-label"></label>
+                <input asp-for="Week7" class="form-control" />
+                <span asp-validation-for="Week7" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Week8" class="control-label"></label>
+                <input asp-for="Week8" class="form-control" />
+                <span asp-validation-for="Week8" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Week9" class="control-label"></label>
+                <input asp-for="Week9" class="form-control" />
+                <span asp-validation-for="Week9" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Week10" class="control-label"></label>
+                <input asp-for="Week10" class="form-control" />
+                <span asp-validation-for="Week10" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Week11" class="control-label"></label>
+                <input asp-for="Week11" class="form-control" />
+                <span asp-validation-for="Week11" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Week12" class="control-label"></label>
+                <input asp-for="Week12" class="form-control" />
+                <span asp-validation-for="Week12" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Week13" class="control-label"></label>
+                <input asp-for="Week13" class="form-control" />
+                <span asp-validation-for="Week13" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Week14" class="control-label"></label>
+                <input asp-for="Week14" class="form-control" />
+                <span asp-validation-for="Week14" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Week15" class="control-label"></label>
+                <input asp-for="Week15" class="form-control" />
+                <span asp-validation-for="Week15" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Week16" class="control-label"></label>
+                <input asp-for="Week16" class="form-control" />
+                <span asp-validation-for="Week16" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Week17" class="control-label"></label>
+                <input asp-for="Week17" class="form-control" />
+                <span asp-validation-for="Week17" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

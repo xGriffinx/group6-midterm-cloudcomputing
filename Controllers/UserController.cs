@@ -11,9 +11,9 @@ namespace DotNetCoreSqlDb.Controllers
 {
     public class UserController : Controller
     {
-        private readonly MyDatabaseContext _context;
+        private readonly FootballContext _context;
 
-        public UserController(MyDatabaseContext context)
+        public UserController(FootballContext context)
         {
             _context = context;
         }
@@ -21,7 +21,7 @@ namespace DotNetCoreSqlDb.Controllers
         // GET: User
         public async Task<IActionResult> Index()
         {
-            return View(await _context.userType.ToListAsync());
+            return View(await _context.UserType.ToListAsync());
         }
 
         // GET: User/Details/5
@@ -32,8 +32,8 @@ namespace DotNetCoreSqlDb.Controllers
                 return NotFound();
             }
 
-            var user = await _context.userType
-                .FirstOrDefaultAsync(m => m.ID == id);
+            var user = await _context.UserType
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (user == null)
             {
                 return NotFound();
@@ -53,7 +53,7 @@ namespace DotNetCoreSqlDb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Name,Email,Password")] userType user)
+        public async Task<IActionResult> Create([Bind("Id,Name,Email,Password,Member1,Member2,Member3,Member4,Member5,Member6,Member7,Member8,Member9,Member10")] UserType user)
         {
             if (ModelState.IsValid)
             {
@@ -72,7 +72,7 @@ namespace DotNetCoreSqlDb.Controllers
                 return NotFound();
             }
 
-            var user = await _context.userType.FindAsync(id);
+            var user = await _context.UserType.FindAsync(id);
             if (user == null)
             {
                 return NotFound();
@@ -85,9 +85,9 @@ namespace DotNetCoreSqlDb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Email,Password")] userType user)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Email,Password")] UserType user)
         {
-            if (id != user.ID)
+            if (id != user.Id)
             {
                 return NotFound();
             }
@@ -101,7 +101,7 @@ namespace DotNetCoreSqlDb.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!UserExists(user.ID))
+                    if (!UserExists(user.Id))
                     {
                         return NotFound();
                     }
@@ -123,8 +123,8 @@ namespace DotNetCoreSqlDb.Controllers
                 return NotFound();
             }
 
-            var user = await _context.userType
-                .FirstOrDefaultAsync(m => m.ID == id);
+            var user = await _context.UserType
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (user == null)
             {
                 return NotFound();
@@ -138,15 +138,15 @@ namespace DotNetCoreSqlDb.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var user = await _context.userType.FindAsync(id);
-            _context.userType.Remove(user);
+            var user = await _context.UserType.FindAsync(id);
+            _context.UserType.Remove(user);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool UserExists(int id)
         {
-            return _context.userType.Any(e => e.ID == id);
+            return _context.UserType.Any(e => e.Id == id);
         }
     }
 }

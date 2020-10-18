@@ -11,7 +11,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
-using DotNetCoreSqlDb.Models;
 
 namespace DotNetCoreSqlDb
 {
@@ -28,7 +27,7 @@ namespace DotNetCoreSqlDb
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddDbContext<MyDatabaseContext>(options =>
+            services.AddDbContext<FootballContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));
         }
 

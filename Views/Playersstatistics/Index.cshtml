@@ -1,0 +1,81 @@
+﻿@model IEnumerable<DotNetCoreSqlDb.Playersstatistics>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Rank)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Player)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Team)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Position)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gamesplayed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Passescompleted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fantasypoints)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pprscoring)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Posrank)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rank)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Player)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Team)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Position)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gamesplayed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Passescompleted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fantasypoints)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pprscoring)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Posrank)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

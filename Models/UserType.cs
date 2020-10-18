@@ -1,11 +1,11 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
-namespace DotNetCoreSqlDb.Models
+namespace DotNetCoreSqlDb
 {
-    public class userType
+    public partial class UserType
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
@@ -21,4 +21,3 @@ namespace DotNetCoreSqlDb.Models
         public string Member10 { get; set; }
     }
 }
-
