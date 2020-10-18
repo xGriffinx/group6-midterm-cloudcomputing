@@ -22,6 +22,7 @@ namespace DotNetCoreSqlDb.Controllers
         public async Task<IActionResult> Index()
         {
             return View(await _context.userType.ToListAsync());
+            //return View(await _context.Playersstatistics.ToListAsync());
         }
 
         // GET: User/Details/5
@@ -53,7 +54,7 @@ namespace DotNetCoreSqlDb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Description,CreatedDate,Done")] userType user)
+        public async Task<IActionResult> Create([Bind("ID,Name,Email,Password")] userType user)
         {
             if (ModelState.IsValid)
             {
@@ -61,7 +62,7 @@ namespace DotNetCoreSqlDb.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(User);
+            return View(user);
         }
 
         // GET: User/Edit/5
@@ -85,7 +86,7 @@ namespace DotNetCoreSqlDb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Description,CreatedDate")] userType user)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Email,Password")] userType user)
         {
             if (id != user.ID)
             {
