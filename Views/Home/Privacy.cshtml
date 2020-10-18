@@ -1,4 +1,4 @@
-﻿@model DotNetCoreSqlDb.Models.Playersstatistics
+﻿@model IEnumerable<DotNetCoreSqlDb.Models.Playersstatistics>
 
 @{
     ViewData["Title"] = "Test Team";
@@ -65,11 +65,14 @@
         </tr>
     </thead>
     <tbody>
+@foreach (var item in Model)
+{
             <tr>
                 <th>
-                    @Html.DisplayFor(model => model.ID)
+                    @Html.DisplayFor(modelItem => item.Player)
                 </th>
             </tr>
+}
         </tbody>
 </table>
 
