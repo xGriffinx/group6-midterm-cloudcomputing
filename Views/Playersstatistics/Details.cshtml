@@ -1,180 +1,84 @@
-﻿@model DotNetCoreSqlDb.Playersstatistics
-
-@{
-    ViewData["Title"] = "Details";
+﻿@{
+    IEnumerable<Playersstatistics> stats = ViewData["Stats"] as IEnumerable<Playersstatistics>;
 }
 
-<h1>Details</h1>
+@{
+    ViewData["Title"] = "Current Score";
+}
 
-<div>
-    <h4>Playersstatistics</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Rank)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Rank)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Player)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Player)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Team)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Team)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Position)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Position)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Age)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Age)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Gamesplayed)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Gamesplayed)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Passescompleted)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Passescompleted)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Fantasypoints)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Fantasypoints)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Pprscoring)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Pprscoring)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Posrank)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Posrank)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Week1)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Week1)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Week2)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Week2)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Week3)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Week3)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Week4)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Week4)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Week5)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Week5)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Week6)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Week6)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Week7)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Week7)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Week8)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Week8)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Week9)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Week9)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Week10)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Week10)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Week11)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Week11)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Week12)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Week12)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Week13)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Week13)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Week14)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Week14)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Week15)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Week15)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Week16)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Week16)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Week17)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Week17)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+<h1>Current Score</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Rank
+            </th>
+            <th>
+                Player
+            </th>
+            <th>
+                Team
+            </th>
+            <th>
+                Pos
+            </th>
+            <th>
+                Age
+            </th>
+            <th>
+                Games Played
+            </th>
+            <th>
+                Passes
+            </th>
+            <th>
+                Points
+            </th>
+            <th>
+                Ppr Scoring
+            </th>
+            <th>
+                Pos Rank
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in stats)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rank)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Player)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Team)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Position)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Age)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gamesplayed)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Passescompleted)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fantasypoints)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pprscoring)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Posrank)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DotNetCoreSqlDb;
+using Microsoft.Data;
 
 namespace DotNetCoreSqlDb.Controllers
 {
@@ -16,6 +17,14 @@ namespace DotNetCoreSqlDb.Controllers
         public PlayersstatisticsController(FootballContext context)
         {
             _context = context;
+        }
+
+        public ActionResult IndexViewData()
+        {
+            ViewData["Users"] = _context.UserType.ToList();
+            ViewData["Stats"] = _context.Playersstatistics.ToList();
+
+            return View();
         }
 
         // GET: Playersstatistics

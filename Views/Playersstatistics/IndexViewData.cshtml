@@ -1,0 +1,317 @@
+﻿@{
+    IEnumerable<UserType> users = ViewData["Users"] as IEnumerable<UserType>;
+    IEnumerable<Playersstatistics> stats = ViewData["Stats"] as IEnumerable<Playersstatistics>;
+}
+
+@{
+    ViewData["Title"] = "Current Score";
+}
+
+@{
+    int[,] countPerWeek = new int[10, 17] {
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
+    };
+    int count = 0;
+    foreach (var user in users)
+    {
+        Console.WriteLine("Start User");
+        for (int i = 0; i < 17; i++)
+        {
+            foreach (var player in stats)
+            {
+                int x = 0;
+                if ((player.Player == user.Member1) || (player.Player == user.Member2) || (player.Player == user.Member3) || (player.Player == user.Member4) || (player.Player == user.Member5) || (player.Player == user.Member6))
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            if (Int32.TryParse(player.Week1, out int num_value0))
+                            {
+                                x = Int32.Parse(player.Week1);
+                                countPerWeek[count, i] = countPerWeek[count, i] + x;
+                            }
+                            break;
+                        case 1:
+                            if (Int32.TryParse(player.Week2, out int num_value1))
+                            {
+                                x = Int32.Parse(player.Week2);
+                                countPerWeek[count, i] = countPerWeek[count, i] + x;
+                            }
+                            break;
+                        case 2:
+                            if (Int32.TryParse(player.Week3, out int num_value2))
+                            {
+                                x = Int32.Parse(player.Week3);
+                                countPerWeek[count, i] = countPerWeek[count, i] + x;
+                            }
+                            break;
+                        case 3:
+                            if (Int32.TryParse(player.Week4, out int num_value3))
+                            {
+                                x = Int32.Parse(player.Week4);
+                                countPerWeek[count, i] = countPerWeek[count, i] + x;
+                            }
+                            break;
+                        case 4:
+                            if (Int32.TryParse(player.Week5, out int num_value4))
+                            {
+                                x = Int32.Parse(player.Week5);
+                                countPerWeek[count, i] = countPerWeek[count, i] + x;
+                            }
+                            break;
+                        case 5:
+                            if (Int32.TryParse(player.Week6, out int num_value5))
+                            {
+                                x = Int32.Parse(player.Week6);
+                                countPerWeek[count, i] = countPerWeek[count, i] + x;
+                            }
+                            break;
+                        case 6:
+                            if (Int32.TryParse(player.Week7, out int num_value6))
+                            {
+                                x = Int32.Parse(player.Week7);
+                                countPerWeek[count, i] = countPerWeek[count, i] + x;
+                            }
+                            break;
+                        case 7:
+                            if (Int32.TryParse(player.Week8, out int num_value7))
+                            {
+                                x = Int32.Parse(player.Week8);
+                                countPerWeek[count, i] = countPerWeek[count, i] + x;
+                            }
+                            break;
+                        case 8:
+                            if (Int32.TryParse(player.Week9, out int num_value8))
+                            {
+                                x = Int32.Parse(player.Week9);
+                                countPerWeek[count, i] = countPerWeek[count, i] + x;
+                            }
+                            break;
+                        case 9:
+                            if (Int32.TryParse(player.Week10, out int num_value9))
+                            {
+                                x = Int32.Parse(player.Week10);
+                                countPerWeek[count, i] = countPerWeek[count, i] + x;
+                            }
+                            break;
+                        case 10:
+                            if (Int32.TryParse(player.Week11, out int num_value10))
+                            {
+                                x = Int32.Parse(player.Week11);
+                                countPerWeek[count, i] = countPerWeek[count, i] + x;
+                            }
+                            break;
+                        case 11:
+                            if (Int32.TryParse(player.Week12, out int num_value11))
+                            {
+                                x = Int32.Parse(player.Week12);
+                                countPerWeek[count, i] = countPerWeek[count, i] + x;
+                            }
+                            break;
+                        case 12:
+                            if (Int32.TryParse(player.Week13, out int num_value12))
+                            {
+                                x = Int32.Parse(player.Week13);
+                                countPerWeek[count, i] = countPerWeek[count, i] + x;
+                            }
+                            break;
+                        case 13:
+                            if (Int32.TryParse(player.Week14, out int num_value13))
+                            {
+                                x = Int32.Parse(player.Week14);
+                                countPerWeek[count, i] = countPerWeek[count, i] + x;
+                            }
+                            break;
+                        case 14:
+                            if (Int32.TryParse(player.Week15, out int num_value14))
+                            {
+                                x = Int32.Parse(player.Week15);
+                                countPerWeek[count, i] = countPerWeek[count, i] + x;
+                            }
+                            break;
+                        case 15:
+                            if (Int32.TryParse(player.Week16, out int num_value15))
+                            {
+                                x = Int32.Parse(player.Week16);
+                                countPerWeek[count, i] = countPerWeek[count, i] + x;
+                            }
+                            break;
+                        case 16:
+                            if (Int32.TryParse(player.Week17, out int num_value16))
+                            {
+                                x = Int32.Parse(player.Week17);
+                                countPerWeek[count, i] = countPerWeek[count, i] + x;
+                            }
+                            break;
+
+                    }
+                }
+
+            }
+        }
+        if (count < 10)
+        {
+            count++;
+        }
+        else
+        {
+            break;
+        }
+    }
+}
+
+<h1>Current Score</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Week 1
+            </th>
+            <th>
+                Week 2
+            </th>
+            <th>
+                Week 3
+            </th>
+            <th>
+                Week 4
+            </th>
+            <th>
+                Week 5
+            </th>
+            <th>
+                Week 6
+            </th>
+            <th>
+                Week 7
+            </th>
+            <th>
+                Week 8
+            </th>
+            <th>
+                Week 9
+            </th>
+            <th>
+                Week 10
+            </th>
+            <th>
+                Week 11
+            </th>
+            <th>
+                Week 12
+            </th>
+            <th>
+                Week 13
+            </th>
+            <th>
+                Week 14
+            </th>
+            <th>
+                Week 15
+            </th>
+            <th>
+                Week 16
+            </th>
+            <th>
+                Week 17
+            </th>
+            <th>
+                Total
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+    @{
+        int playerCount = 0;
+        foreach (var team in users)
+        {
+            int total = 0;
+            for (int x = 0; x < 17; x++)
+            {
+                total = total + countPerWeek[playerCount, x];
+            }
+            <tr>
+                <th>
+                    @Html.DisplayFor(modelItem => team.Name)
+                </th>
+                <th>
+                    @countPerWeek[playerCount, 0]
+                </th>
+                <th>
+                    @countPerWeek[playerCount, 1]
+                </th>
+                <th>
+                    @countPerWeek[playerCount, 2]
+                </th>
+                <th>
+                    @countPerWeek[playerCount, 3]
+                </th>
+                <th>
+                    @countPerWeek[playerCount, 4]
+                </th>
+                <th>
+                    @countPerWeek[playerCount, 5]
+                </th>
+                <th>
+                    @countPerWeek[playerCount, 6]
+                </th>
+                <th>
+                    @countPerWeek[playerCount, 7]
+                </th>
+                <th>
+                    @countPerWeek[playerCount, 8]
+                </th>
+                <th>
+                    @countPerWeek[playerCount, 9]
+                </th>
+                <th>
+                    @countPerWeek[playerCount, 10]
+                </th>
+                <th>
+                    @countPerWeek[playerCount, 11]
+                </th>
+                <th>
+                    @countPerWeek[playerCount, 12]
+                </th>
+                <th>
+                    @countPerWeek[playerCount, 13]
+                </th>
+                <th>
+                    @countPerWeek[playerCount, 14]
+                </th>
+                <th>
+                    @countPerWeek[playerCount, 15]
+                </th>
+                <th>
+                    @countPerWeek[playerCount, 16]
+                </th>
+                <th>
+                    @total
+                </th>
+            </tr>
+            if (playerCount < 10)
+            {
+                playerCount++;
+            }
+            else
+            {
+                playerCount = 10;
+            }
+        }
+        }
+    </tbody>
+</table>
+
