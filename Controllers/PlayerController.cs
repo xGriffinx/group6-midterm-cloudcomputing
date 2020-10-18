@@ -9,22 +9,22 @@ using DotNetCoreSqlDb.Models;
 
 namespace DotNetCoreSqlDb.Controllers
 {
-    public class UserController : Controller
+    public class PlayerController : Controller
     {
         private readonly MyDatabaseContext _context;
 
-        public UserController(MyDatabaseContext context)
+        public PlayerController(MyDatabaseContext context)
         {
             _context = context;
         }
 
-        // GET: User
+        // GET: Player
         public async Task<IActionResult> Index()
         {
-            return View(await _context.userType.ToListAsync());
+            return View(await _context.Playersstatistics.ToListAsync());
         }
 
-        // GET: User/Details/5
+        // GET: Player/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -32,39 +32,39 @@ namespace DotNetCoreSqlDb.Controllers
                 return NotFound();
             }
 
-            var user = await _context.userType
+            var player = await _context.Playersstatistics
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (user == null)
+            if (player == null)
             {
                 return NotFound();
             }
 
-            return View(user);
+            return View(player);
         }
 
-        // GET: User/Create
+        // GET: player/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: User/Create
+        // POST: player/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Name,Email,Password")] userType user)
+        public async Task<IActionResult> Create([Bind("Player")] Playersstatistics playersstatistics)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(user);
+                _context.Add(playersstatistics);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(user);
+            return View(playersstatistics);
         }
 
-        // GET: User/Edit/5
+        // GET: player/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -72,22 +72,22 @@ namespace DotNetCoreSqlDb.Controllers
                 return NotFound();
             }
 
-            var user = await _context.userType.FindAsync(id);
-            if (user == null)
+            var player = await _context.Playersstatistics.FindAsync(id);
+            if (player == null)
             {
                 return NotFound();
             }
-            return View(user);
+            return View(player);
         }
 
-        // POST: User/Edit/5
+        // POST: player/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Email,Password")] userType user)
+        public async Task<IActionResult> Edit(int id, [Bind("Player")] Playersstatistics playerstatistics)
         {
-            if (id != user.ID)
+            if (id != playerstatistics.ID)
             {
                 return NotFound();
             }
@@ -96,12 +96,12 @@ namespace DotNetCoreSqlDb.Controllers
             {
                 try
                 {
-                    _context.Update(user);
+                    _context.Update(playerstatistics);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!UserExists(user.ID))
+                    if (!playerExists(playerstatistics.ID))
                     {
                         return NotFound();
                     }
@@ -112,10 +112,10 @@ namespace DotNetCoreSqlDb.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(user);
+            return View(playerstatistics);
         }
 
-        // GET: User/Delete/5
+        // GET: player/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -123,30 +123,30 @@ namespace DotNetCoreSqlDb.Controllers
                 return NotFound();
             }
 
-            var user = await _context.userType
+            var player = await _context.Playersstatistics
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (user == null)
+            if (player == null)
             {
                 return NotFound();
             }
 
-            return View(user);
+            return View(player);
         }
 
-        // POST: User/Delete/5
+        // POST: player/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var user = await _context.userType.FindAsync(id);
-            _context.userType.Remove(user);
+            var player = await _context.Playersstatistics.FindAsync(id);
+            _context.Playersstatistics.Remove(player);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool UserExists(int id)
+        private bool playerExists(int id)
         {
-            return _context.userType.Any(e => e.ID == id);
+            return _context.Playersstatistics.Any(e => e.ID == id);
         }
     }
 }

@@ -13,6 +13,7 @@ namespace DotNetCoreSqlDb.Models
         {
         }
 
-        public DbSet<DotNetCoreSqlDb.Models.userType> userType { get; set; }
+        public DbSet<userType> userType { get; set; }
+        public DbSet<Playersstatistics> Playersstatistics { get; set; }
     }
 }
